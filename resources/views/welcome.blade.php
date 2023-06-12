@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.112.5">
-    <title>e-sports</title>
+    <title>SportXcel</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/headers/">
 
@@ -293,7 +293,7 @@
                     <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                         <svg class="bi" width="40" height="32" role="" aria-label="">
                             <use xlink:href="#" />
-                            <h3>E-SPORT</h3>
+                            <h3>SportXcel</h3>
                         </svg>
                     </a>
                     <div class="col-md-3 mb-2 mb-md-0">
@@ -319,7 +319,7 @@
                             </ul>
                         </div>
                     </div>
-            </nav>s
+            </nav>
         </header>
 
         <main>
@@ -483,6 +483,7 @@
                                         <use xlink:href="#facebook" />
                                     </svg></a></li>
                         </ul>
+
                     </footer>
                 </div>
                 <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
