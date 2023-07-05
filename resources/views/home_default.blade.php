@@ -1,82 +1,5 @@
 @include('header')
-
-<style>
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-}
-
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
-}
-
-.b-example-divider {
-    width: 100%;
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-}
-
-.b-example-vr {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 100vh;
-}
-
-.bi {
-    vertical-align: -.125em;
-    fill: currentColor;
-}
-
-.nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-}
-
-.btn-bd-primary {
-    --bd-violet-bg: #712cf9;
-    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-
-    --bs-btn-font-weight: 600;
-    --bs-btn-color: var(--bs-white);
-    --bs-btn-bg: var(--bd-violet-bg);
-    --bs-btn-border-color: var(--bd-violet-bg);
-    --bs-btn-hover-color: var(--bs-white);
-    --bs-btn-hover-bg: #6528e0;
-    --bs-btn-hover-border-color: #6528e0;
-    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-    --bs-btn-active-color: var(--bs-btn-hover-color);
-    --bs-btn-active-bg: #5a23c8;
-    --bs-btn-active-border-color: #5a23c8;
-}
-
-.bd-mode-toggle {
-    z-index: 1500;
-}
-</style>
-
-
-</head>
+<!-- membuat halaman home -->
 
 <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -148,6 +71,7 @@
     </div>
 
     <!-- membuat navbar -->
+
     <header data-bs-theme="dark">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid me-5">
@@ -210,72 +134,113 @@
     </header>
 
     <main>
-        <div class="container py-4">
 
-
-            <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-                <div class="container-fluid py-5">
-                    <h1 class="display-5 fw-bold">Informasi</h1>
-                    <p class="col-md-8 fs-4">
-                    <p>Muay Thai:
-                        Muay Thai, juga dikenal sebagai "seni sembilan anggota tubuh," adalah seni bela diri asal
-                        Thailand yang terkenal karena teknik pukulan, sikutan, siku, dan lututan yang kuat. Dalam Muay
-                        Thai, petarung menggunakan kombinasi serangan fisik dan teknik kaki, serta melibatkan
-                        kelincahan, kekuatan, dan strategi untuk mengalahkan lawan. Muay Thai telah menjadi populer di
-                        seluruh dunia sebagai olahraga kompetitif dan juga sebagai metode kebugaran dan pertahanan diri.
-                    </p>
-
-                    <p>Silat:
-                        Silat adalah seni bela diri tradisional yang berasal dari wilayah Asia Tenggara, khususnya
-                        Indonesia, Malaysia, dan Brunei. Silat menekankan pada kombinasi teknik serangan dan pertahanan,
-                        termasuk tendangan, pukulan, kuncian sendi, lemparan, dan serangan dengan senjata tradisional.
-                        Selain aspek fisik, Silat juga melibatkan nilai-nilai etika, moralitas, dan spiritualitas. Silat
-                        memiliki berbagai aliran dan gaya yang berbeda-beda, masing-masing dengan keunikan teknik dan
-                        filosofi.</p>
-
-                    <p> Kurash:
-                        Kurash adalah seni bela diri asal Uzbekistan yang menekankan pada teknik lempar, tangkapan, dan
-                        menjatuhkan lawan. Dalam Kurash, pesilat menggunakan kain yang disebut "chapan" untuk mengunci,
-                        melempar, atau menahan lawan. Kurash memadukan aspek fisik, mental, dan teknik dalam melawan
-                        lawan. Kurash juga memiliki aturan yang mengatur kejujuran dan etika dalam bertanding, serta
-                        memiliki nilai-nilai budaya dan tradisi yang kuat.</p>
-                </div>
+        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel" data-bs-theme="dark">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <center>
+                        <img src="{{asset('images/1.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                            alt="">
 
-            <div class="row align-items-md-stretch">
-                <div class="col-md-6">
-                    <div class="h-100 p-5 text-bg-dark rounded-3">
-                        <h2>Hasil Pertandingan</h2>
-                        <p>1. Juara championship belanda</p>
-                        <p>2. Medali emas sirkuit muay thai kelas 70</p>
-                        <p>3. Medali perak sirkuit muay thai kelas 60</p>
-                        <p>4. Medali perunggu sirkuit muay thai kelas 54</p>
-                        <p>5. Juara muayboranc</p>
-                        <p>6. Juara Pora banda aceh</p>
+                    </center>
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <p><a class="btn btn-lg btn-primary" href="">
+                                    </li>">Sign up today</a></p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                        <h2>Jadwal Latihan</h2>
-                        <p>1. Selasa sore pukul 16.00</p>
-                        <p>2. Rabu sore pukul 16.00</p>
-                        <p>3. Senin malam pukul 20.30</p>
-                        <p>4. Rabu malam pukul 20.30</p>
-                        <p>5. Jum'at malam pukul 20.30</p>
-                        <p>6. Minggu pagi pukul 08.00</p>
+                <div class="carousel-item">
+                    <center>
+                        <img src="{{asset('images/2.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                            alt="">
+                    </center>
+                    <div class="container">
+                        <div class="carousel-caption">
+
+                            <p><a class="btn btn-lg btn-primary" href="learn">Learn more</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <center>
+                        <img src="{{asset('images/3.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                            alt="">
+                    </center>
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <p><a class="btn btn-lg btn-primary" href="gallery">Browse gallery</a></p>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <footer class="pt-3 mt-4 text-body-secondary border-top">
-                &copy; 2023
-            </footer>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-    </main>
-    <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+            integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous">
+        </script>
+
+        <!-- Marketing messaging and featurettes
+================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+        <h1>Paling Atas</h1>
+        <div class="container marketing">
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
+                <div class="col-lg-4 mt-2">
+                    <img src="{{asset('images/4.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto" alt="">
+                    <h2 class="fw-normal">Muay Thai</h2>
+                    <p>Muay Thai, juga dikenal sebagai "Seni Delapan Anggota" terkenal karena efektivitasnya sebagai
+                        seni bela diri dan telah menjadi populer di seluruh dunia sebagai olahraga kontak penuh.</p>
+                    <p><a class="btn btn-secondary" href="detail1">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4 mt-2">
+                    <img src="{{asset('images/5.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto" alt="">
+                    <h2 class="fw-normal">Silat</h2>
+                    <p>Silat melibatkan gabungan teknik bela diri, termasuk pukulan, tendangan, kuncian, lemparan,
+                        serangan bersenjata, dan teknik pertahanan diri.</p>
+                    <p><a class="btn btn-secondary" href="detail2">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4 mt-2">
+                    <img src="{{asset('images/6.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto" alt="">
+                    <h2 class="fw-normal">Kurash</h2>
+                    <p>Kurash adalah seni bela diri tradisional yang berasal dari Uzbekistan. Ini adalah bentuk bela
+                        diri yang menggabungkan teknik lempar, pegangan, dan gulat.</p>
+                    <p><a class="btn btn-secondary" href="detail3">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+
+            <!-- membuat footer  -->
+
+            @include('footer')
+            <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+                crossorigin="anonymous"></script>
+
+            <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+                crossorigin="anonymous"></script>
 
 </body>
+
+</html>
 
 </html>

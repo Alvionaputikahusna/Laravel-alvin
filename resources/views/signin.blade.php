@@ -181,6 +181,43 @@
     </div>
 
 
+    <!-- membuat navbar -->
+    <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                    <svg class="bi" width="40" height="32" role="" aria-label="">
+                        <use xlink:href="#" />
+                        <h3>SportXcel</h3>
+                    </svg>
+                </a>
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="komunitas">Community</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="help">Helps</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+        </nav>
+    </header>
+
+
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="bookmark-star" viewBox="0 0 16 16">
             <path
@@ -229,7 +266,12 @@
                 <div class="modal-body p-5 pt-0">
                     <form class="">
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control rounded-3" id="floatingInput"
+                            <input type="text" class="form-control rounded-3" name="username" id="floatingInput"
+                                placeholder="text">
+                            <label for="floatingInput">Username</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control rounded-3" name="e" id="floatingInput"
                                 placeholder="name@example.com">
                             <label for="floatingInput">Email address</label>
                         </div>
@@ -240,24 +282,17 @@
                         </div>
                         <button class="w-100 mb2 btn btn-lg rounded-3 btn-primary" type="submit">Sign up</button>
                         <hr class="my-7">
-                        <h2 class="fs-5 fw-bold mb-3">Or use a third-party</h2>
                         <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
                             <svg class="bi me-1" width="16" height="16">
                                 <use xlink:href="#twitter" />
                             </svg>
-                            Sign up with Twitter
+                            Sign up with Google
                         </button>
                         <button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" type="submit">
                             <svg class="bi me-1" width="16" height="16">
                                 <use xlink:href="#facebook" />
                             </svg>
-                            Sign up with Facebook
-                        </button>
-                        <button class="w-100 py-2 mb-2 btn btn-outline-secondary rounded-3" type="submit">
-                            <svg class="bi me-1" width="16" height="16">
-                                <use xlink:href="#github" />
-                            </svg>
-                            Sign up with GitHub
+                            Sign up with Email
                         </button>
                     </form>
                 </div>

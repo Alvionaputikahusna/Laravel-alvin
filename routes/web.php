@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\layoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
-
-Route::get('/signin', function () {
-    return view('signin');
-});
 
 Route::get('/learn', function () {
     return view('learn');
@@ -56,3 +50,7 @@ Route::get('/help', function () {
 Route::get('/logout', function () {
     return view('logout');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

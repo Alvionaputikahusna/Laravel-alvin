@@ -184,20 +184,20 @@
     <!-- membuat navbar -->
     <header data-bs-theme="dark">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
+            <div class="container-fluid me-5">
                 <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                     <svg class="bi" width="40" height="32" role="" aria-label="">
                         <use xlink:href="#" />
-                        <h3>E-SPORT</h3>
+                        <h3>SportXcel</h3>
                     </svg>
                 </a>
-                <div class="col-md-3 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0 me-5">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="collapse navbar-collapse" id="navbarCollapse ">
                         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="home">Home</a>
@@ -208,33 +208,40 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="help">Helps</a>
                             </li>
+                            <li>
+                                @guest
+                                @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="">Logout</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @endif
+
+
+                            @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                            @endguest
                             </li>
                         </ul>
                     </div>
                 </div>
         </nav>
     </header>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
-                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
-                    viewBox="0 0 24 24">
-                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                    <circle cx="12" cy="13" r="4" />
-                </svg>
-                <strong>Album</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
-                aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-    </div>
-    </header>
-
     <main>
 
         <div class="album py-5 bg-body-tertiary">
@@ -243,13 +250,8 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
+                            <img src="{{asset('images/5.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -260,13 +262,8 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
+                            <img src="{{asset('images/12.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -277,13 +274,8 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
+                            <img src="{{asset('images/7.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -295,13 +287,8 @@
 
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
+                            <img src="{{asset('images/10.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -312,13 +299,8 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
+                            <img src="{{asset('images/8.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -329,31 +311,21 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
-                            <div class="card-body">
-                                <p class="card-text"></p>
-                                <div class="d-flex justify-content-between align-items-center">
+                            <<img src="{{asset('images/11.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
+                                <div class="card-body">
+                                    <p class="card-text"></p>
+                                    <div class="d-flex justify-content-between align-items-center">
 
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
+                            <img src="{{asset('images/5.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -364,13 +336,8 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
+                            <img src="{{asset('images/6.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
@@ -381,13 +348,8 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em"></text>
-                            </svg>
+                            <img src="{{asset('images/9.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">

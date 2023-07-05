@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.112.5">
-    <title>e-sport</title>
+    <title>SportXcel</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/jumbotron/">
 
@@ -183,20 +183,20 @@
     <!-- membuat navbar -->
     <header data-bs-theme="dark">
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <div class="container-fluid">
+            <div class="container-fluid me-5">
                 <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                     <svg class="bi" width="40" height="32" role="" aria-label="">
                         <use xlink:href="#" />
-                        <h3>E-SPORT</h3>
+                        <h3>SportXcel</h3>
                     </svg>
                 </a>
-                <div class="col-md-3 mb-2 mb-md-0">
+                <div class="col-md-3 mb-2 mb-md-0 me-5">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="collapse navbar-collapse" id="navbarCollapse ">
                         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="home">Home</a>
@@ -207,15 +207,40 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="help">Helps</a>
                             </li>
+                            <li>
+                                @guest
+                                @if (Route::has('login'))
                             <li class="nav-item">
-                                <a class="nav-link" href="">Logout</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @endif
+
+
+                            @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                            @endguest
                             </li>
                         </ul>
                     </div>
                 </div>
         </nav>
     </header>
-
     <main>
         <div class="container py-4">
             <header class="pb-3 mb-4 border-bottom">

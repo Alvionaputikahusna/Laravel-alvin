@@ -1,4 +1,4 @@
-@include('partials.header')
+@include('header')
 
 
 <style>
@@ -80,19 +80,19 @@
 <!-- membuat navbar -->
 <header data-bs-theme="dark">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
+        <div class="container-fluid me-5">
             <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
                 <svg class="bi" width="40" height="32" role="" aria-label="">
                     <use xlink:href="#" />
                     <h3>SportXcel</h3>
                 </svg>
             </a>
-            <div class="col-md-3 mb-2 mb-md-0">
+            <div class="col-md-3 mb-2 mb-md-0 me-5">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="collapse navbar-collapse" id="navbarCollapse ">
                     <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="home">Home</a>
@@ -103,15 +103,40 @@
                         <li class="nav-item">
                             <a class="nav-link" href="help">Helps</a>
                         </li>
+                        <li>
+                            @guest
+                            @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="">Logout</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
+
+
+                        @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
                         </li>
                     </ul>
                 </div>
             </div>
     </nav>
 </header>
-
 
 </head>
 
@@ -200,19 +225,13 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Muay Thai</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Muay Thai</text>
-                            </svg>
+                            <img src="{{asset('images/4.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
+
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>muaythai_lhokseumawe<a class="btn btn-sm btn-outline-secondary"
                                                 href="https://chat.whatsapp.com/L56QEwsOUqv542HR5LItSb">Gabung</a></p>
                                     </div>
                                 </div>
@@ -221,19 +240,12 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Silat</text>
-                            </svg>
+                            <img src="{{asset('images/5.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>Silat<a class="btn btn-sm btn-outline-secondary"
                                                 href="https://chat.whatsapp.com/BT2tkyF9F1v58cyGR4IEiY">Gabung</a></p>
                                     </div>
 
@@ -243,19 +255,12 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Kurash</text>
-                            </svg>
+                            <img src="{{asset('images/6.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>Kurash<a class="btn btn-sm btn-outline-secondary"
                                                 href="https://chat.whatsapp.com/EeRFu0GiKaF5B9DmPmFz1b">Gabung</a></p>
                                     </div>
 
@@ -266,19 +271,12 @@
 
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Karate</text>
-                            </svg>
+                            <img src="{{asset('images/7.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>Karate_Lhokseumawe<a class="btn btn-sm btn-outline-secondary"
                                                 href="https://instagram.com/kki_lhokseumawe?igshid=MzRlODBiNWFlZA==">Gabung</a>
                                         </p>
                                     </div>
@@ -289,20 +287,14 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Taeakwondo</text>
-                            </svg>
+                            <img src="{{asset('images/8.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>Taekwondo<a class="btn btn-sm btn-outline-secondary"
                                                 href="https://instagram.com/taekwondobaiturrahman?igshid=MzRlODBiNWFlZA==">Gabung</a>
+
                                         </p>
                                     </div>
 
@@ -312,19 +304,12 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">random</text>
-                            </svg>
+                            <img src="{{asset('images/9.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>Random<a class="btn btn-sm btn-outline-secondary"
                                                 href="https://instagram.com/rizkankasirn?igshid=MzRlODBiNWFlZA==">Gabung</a>
                                         </p>
                                     </div>
@@ -336,19 +321,12 @@
 
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Basket</text>
-                            </svg>
+                            <img src="{{asset('images/10.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>Basket<a class="btn btn-sm btn-outline-secondary"
                                                 href="https://instagram.com/official_timnasbasket?igshid=MzRlODBiNWFlZA==">Gabung</a>
                                         </p>
                                     </div>
@@ -359,19 +337,12 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">persemasfc_</text>
-                            </svg>
+                            <img src="{{asset('images/11.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>Sepak Bola<a class="btn btn-sm btn-outline-secondary"
                                                 href="https://instagram.com/persemasfc_?igshid=MzRlODBiNWFlZA==">Gabung</a>
                                         </p>
                                     </div>
@@ -382,19 +353,16 @@
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                                preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                                    dy=".3em">Tarung Derajat</text>
-                            </svg>
+                            <img src="{{asset('images/12.jpeg')}}" class="img-fluid mx-auto" width="100%" height="auto"
+                                alt="">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural
-                                    lead-in to additional content. This content is a little bit longer.</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <p><a class="btn btn-sm btn-outline-secondary"
+                                        <p>Tarung Derajat
+
+
+
+                                            <a class="btn btn-sm btn-outline-secondary"
                                                 href="https://instagram.com/satlatlhokseumawe?igshid=MzRlODBiNWFlZA==">Gabung</a>
                                         </p>
                                     </div>

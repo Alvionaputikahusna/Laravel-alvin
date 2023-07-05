@@ -273,9 +273,9 @@
                             <label for="floatingInput">Email address</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control rounded-3" id="floatingInput"
-                                placeholder="Password">
-                            <label for="floatingPassword">Tulis disini</label>
+                            <input type="text" class="form-control rounded-3" id="floatingInput"
+                                placeholder="masukkan keluhan anda">
+                            <label for="floatingInput ">Tulis disini</label>
                         </div>
                         <button class="w-100 mb2 btn btn-lg rounded-3 btn-primary" type="submit">Submit</button>
 
